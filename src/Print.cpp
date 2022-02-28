@@ -30,4 +30,16 @@ void printHelp()
 }
 
 void printOperation();
-void printArrSorted(vector<int>&);
+void printArr(vector<int>& arr)
+{
+	for (int i = 0; i < arr.size(); i++)
+	{
+		if (i == 0)
+			cout << "{ ";
+		if(i == arr.size()-1)
+			cout << arr[i] << " }";
+		else
+			cout << arr[i] << ", ";
+	}
+	cout << endl;
+}

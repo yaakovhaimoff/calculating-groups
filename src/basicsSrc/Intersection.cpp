@@ -1,8 +1,8 @@
 #include "basicsInc/Intersection.hpp"
 
-Intersection::Intersection()
-{
-}
+//Intersection::Intersection()
+//{
+//}
 
 Intersection::~Intersection()
 {

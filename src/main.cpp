@@ -1,10 +1,10 @@
 #include <iostream>
 #include <cstdlib>
-#include "Manager.hpp"
+#include "Calculator.hpp"
 
 int main() 
 {
-    Manager run;
+    Calculator run;
     run.runCalc();
     
     return EXIT_SUCCESS;

@@ -2,7 +2,7 @@
 #include "Macros.hpp"
 #include "Operation.hpp"
 
-class Difference:public Operation
+class Difference : public Operation
 {
 public:
 	Difference();

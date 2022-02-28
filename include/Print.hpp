@@ -8,6 +8,6 @@ public:
 	~Print();
 	void printHelp();
 	void printOperation();
-	void printArrSorted(vector<int>&);
+	void printArr(vector<int>&);
 
 };

@@ -15,6 +15,7 @@ using std::cin;
 using std::endl;
 using std::shared_ptr;
 
+
 //string Uni = "uni";
 //string Evala = "eval";
 //string Diff = "diff";
@@ -23,3 +24,4 @@ using std::shared_ptr;
 //string Del = "del";
 //string Help = "help";
 //string Exit = "exit";
+//string Exit = "intersection";

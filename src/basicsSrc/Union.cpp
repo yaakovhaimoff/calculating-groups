@@ -1,9 +1,9 @@
 #include "basicsInc/Union.hpp"
 
 
-Union::Union()
-{
-}
+//Union::Union()
+//{
+//}
 
 Union::~Union()
 {

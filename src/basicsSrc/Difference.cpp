@@ -1,9 +1,9 @@
 #include "basicsInc/Difference.hpp"
 
-Difference::Difference()
-{
-
-}
+//Difference::Difference()
+//{
+//
+//}
 
 Difference::~Difference()
 {

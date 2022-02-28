@@ -3,15 +3,20 @@
 #include "basicsInc/Difference.hpp"
 #include "basicsInc/Intersection.hpp"
 #include "basicsInc/Union.hpp"
+#include "Print.hpp"
 
-class calculator
+class Calculator
 {
 public:
-	calculator();
-	~calculator();
+	Calculator();
+	~Calculator();
 	void runCalc();
-	void printHelp();
+	void operationWithTwoParameters(const string);
+	void operationWithOneParameters(const string);
+	void evalFunc(const int);
+	void print();
 
 private:
 	vector<shared_ptr<Operation>> m_operation;
+	Print m_print;
 };
