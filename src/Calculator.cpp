@@ -57,6 +57,7 @@ void Calculator::operationWithOneParameters(const string userInput)
 void Calculator::evalFunc(const int indexInArrToRunOperationOn)
 {
 	vector<vector<int>> arrInput;
+	vector<int> outPut;
 	int sizeOfArrFromInput, inputToArr;
 	for (int i = 0; i < m_operation[indexInArrToRunOperationOn]->getSizeOfOPeration(); i++)
 	{
@@ -67,7 +68,14 @@ void Calculator::evalFunc(const int indexInArrToRunOperationOn)
 			arrInput[i].push_back(inputToArr);
 		}
 	}
-	//m_operation[indexInArrToRunOperationOn]->calculate()
+	outPut = calculateOperations(indexInArrToRunOperationOn, arrInput);
+}
+vector<int> Calculator::calculateOperations(const int indexInArrToRunOperationOn, vector<vector<int>> arrInput)
+{
+	if (m_operation[indexInArrToRunOperationOn]->returnSharedPtrLeftVal() &&
+		m_operation[indexInArrToRunOperationOn]->returnSharedPtrRightVal())
+		m_operation[indexInArrToRunOperationOn]->calculate();
+
 }
 Calculator::~Calculator()
 {

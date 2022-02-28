@@ -14,6 +14,7 @@ public:
 	void operationWithTwoParameters(const string);
 	void operationWithOneParameters(const string);
 	void evalFunc(const int);
+	vector<int> calculateOperations(const int, vector<vector<int>>);
 	void print();
 
 private:

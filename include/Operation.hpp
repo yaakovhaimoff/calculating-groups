@@ -8,7 +8,8 @@ public:
 	void setOperations(const shared_ptr <Operation>&, const shared_ptr <Operation>&);
 	void setSizeOfOperation(const int);
 	int getSizeOfOPeration()const { return m_size; }
-	bool returnSharedPtr()const;
+	bool returnSharedPtrLeftVal()const;
+	bool returnSharedPtrRightVal()const;
 	virtual ~Operation();
 	
 	virtual vector<int> calculate(const vector<int>&, const vector<int>&);
