@@ -1,12 +1,11 @@
 #pragma once 
 #include "Macros.hpp"
 #include "Operation.hpp"
+#include "Set.hpp"
 
 class Union : public Operation
 {
 public:
 	Union();
-	~Union();
-
-	vector<int> calculate(const vector<int>& a, const vector<int>& b)override;
+	vector<int> calculate(const vector<int>&, const vector<int>&)override;
 };

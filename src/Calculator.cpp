@@ -2,6 +2,7 @@
 
 Calculator::Calculator()
 {
+	m_operation.resize(3);
 	m_operation[0] = make_shared<Union>();
 	m_operation[1] = make_shared<Intersection>();
 	m_operation[2] = make_shared<Difference>();
@@ -12,7 +13,7 @@ void Calculator::runCalc()
 	cin >> userInput;
 	while (userInput != "exit")
 	{
-		if (userInput == "uni" || userInput == "diff" || userInput == "intersection" || 
+		if (userInput == "uni" || userInput == "diff" || userInput == "intersection" ||
 			userInput == "comp" || userInput == "product")
 		{
 			operationWithTwoParameters(userInput);
@@ -37,8 +38,18 @@ void Calculator::operationWithTwoParameters(const string userInput)
 		m_operation.push_back(make_shared<Union>());
 		m_operation[m_operation.size() - 1]->setOperations(m_operation[firstIndexInArr],
 			m_operation[secondIndexInArr]);
-		m_operation[m_operation.size() - 1]->setSizeOfOperation(m_operation[firstIndexInArr]->getSizeOfOPeration() +
-			m_operation[secondIndexInArr]->getSizeOfOPeration());
+	}
+	else if (userInput == "intersection")
+	{
+		m_operation.push_back(make_shared<Intersection>());
+		m_operation[m_operation.size() - 1]->setOperations(m_operation[firstIndexInArr],
+			m_operation[secondIndexInArr]);
+	}
+	else if (userInput == "diff")
+	{
+		m_operation.push_back(make_shared<Difference>());
+		m_operation[m_operation.size() - 1]->setOperations(m_operation[firstIndexInArr],
+			m_operation[secondIndexInArr]);
 	}
 }
 void Calculator::operationWithOneParameters(const string userInput)
@@ -47,35 +58,19 @@ void Calculator::operationWithOneParameters(const string userInput)
 	cin >> indexInArrToRunOperationOn;
 	if (userInput == "eval")
 	{
-		evalFunc(indexInArrToRunOperationOn);
+		calculateOperations(indexInArrToRunOperationOn);
 	}
 	else
 	{
 
 	}
 }
-void Calculator::evalFunc(const int indexInArrToRunOperationOn)
+void Calculator::calculateOperations(const int indexInArrToRunOperationOn)
 {
-	vector<vector<int>> arrInput;
-	vector<int> outPut;
-	int sizeOfArrFromInput, inputToArr;
-	for (int i = 0; i < m_operation[indexInArrToRunOperationOn]->getSizeOfOPeration(); i++)
-	{
-		cin >> sizeOfArrFromInput;
-		for (int j = 0; j < sizeOfArrFromInput; j++)
-		{
-			cin >> inputToArr;
-			arrInput[i].push_back(inputToArr);
-		}
-	}
-	outPut = calculateOperations(indexInArrToRunOperationOn, arrInput);
-}
-vector<int> Calculator::calculateOperations(const int indexInArrToRunOperationOn, vector<vector<int>> arrInput)
-{
-	if (m_operation[indexInArrToRunOperationOn]->returnSharedPtrLeftVal() &&
-		m_operation[indexInArrToRunOperationOn]->returnSharedPtrRightVal())
-		m_operation[indexInArrToRunOperationOn]->calculate();
-
+	auto result = m_operation[indexInArrToRunOperationOn]->eval(
+		m_operation[indexInArrToRunOperationOn]->getLeftOperation(),
+		m_operation[indexInArrToRunOperationOn]->getRightOperation());
+	m_print.printArr(result);
 }
 Calculator::~Calculator()
 {

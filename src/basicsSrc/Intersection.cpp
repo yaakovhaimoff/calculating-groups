@@ -1,10 +1,6 @@
 #include "basicsInc/Intersection.hpp"
 
-//Intersection::Intersection()
-//{
-//}
-
-Intersection::~Intersection()
+Intersection::Intersection()
 {
 }
 vector<int> Intersection::calculate(const vector<int>& a, const vector<int>& b)

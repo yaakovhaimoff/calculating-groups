@@ -1,7 +1,6 @@
 #include "Operation.hpp"
 
 Operation::Operation()
-	: m_size(2)
 {
 	m_leftOperation = nullptr;
 	m_rightOperation = nullptr;
@@ -12,20 +11,30 @@ void Operation::setOperations(const shared_ptr <Operation>& left,
 	m_leftOperation = left;
 	m_rightOperation = right;
 }
-void Operation::setSizeOfOperation(const int size)
+shared_ptr <Operation> Operation::getLeftOperation()const
 {
-	m_size = size;
+	return m_leftOperation;
 }
-bool Operation::returnSharedPtrLeftVal()const
+shared_ptr <Operation> Operation::getRightOperation()const
 {
-	return m_leftOperation==nullptr;
+	return m_rightOperation;
 }
-bool Operation::returnSharedPtrRightVal()const
+vector<int> Operation::eval(const shared_ptr <Operation>& left, const shared_ptr <Operation>& right)
 {
-	return m_rightOperation==nullptr;
+	if (left != nullptr || right != nullptr)
+	{
+		vector<int> a = left->eval(left->getLeftOperation(), left->getRightOperation());
+		vector<int> b = right->eval(right->getLeftOperation(), right->getRightOperation());
+		return calculate(a, b);
+	}
+	else
+	{
+		Set a, b;
+		return calculate(a.getArr(), b.getArr());
+	}
 }
 vector<int> Operation::calculate(const vector<int>& a, const vector<int>& b)
-{
+{ 
 	return a;
 }
 Operation::~Operation()

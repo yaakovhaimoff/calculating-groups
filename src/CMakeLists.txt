@@ -4,7 +4,7 @@
                                    "basicsSrc/Intersection.cpp"
                                    "basicsSrc/Difference.cpp"
                                    "Product.cpp"
-                                   "Eval.cpp"
+                                   "Set.cpp"
                                    "Operation.cpp"
                                    "Print.cpp"
                                   )

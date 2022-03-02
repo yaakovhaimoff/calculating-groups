@@ -7,7 +7,7 @@ Print::Print()
 Print::~Print()
 {
 }
-void printHelp()
+void Print::printHelp()
 {
 	cout <<
 		"Enter command('help' for the list of available commands) : help\n"
@@ -29,8 +29,11 @@ void printHelp()
 		"* exit - exit the program\n";
 }
 
-void printOperation();
-void printArr(vector<int>& arr)
+void Print::printOperation()
+{
+
+}
+void Print::printArr(vector<int>& arr)
 {
 	for (int i = 0; i < arr.size(); i++)
 	{

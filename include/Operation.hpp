@@ -1,20 +1,19 @@
 #pragma once 
 #include "Macros.hpp"
+#include "Set.hpp"
 
 class Operation
 {
+
 public:
 	Operation();
 	void setOperations(const shared_ptr <Operation>&, const shared_ptr <Operation>&);
-	void setSizeOfOperation(const int);
-	int getSizeOfOPeration()const { return m_size; }
-	bool returnSharedPtrLeftVal()const;
-	bool returnSharedPtrRightVal()const;
-	virtual ~Operation();
-	
+	shared_ptr <Operation> getLeftOperation()const;
+	shared_ptr <Operation> getRightOperation()const;
+	vector<int> eval(const shared_ptr <Operation>&, const shared_ptr <Operation>&);
 	virtual vector<int> calculate(const vector<int>&, const vector<int>&);
+	virtual ~Operation();
 	
 private:
 	shared_ptr <Operation> m_leftOperation, m_rightOperation;
-	int m_size;
 };

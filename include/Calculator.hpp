@@ -13,8 +13,7 @@ public:
 	void runCalc();
 	void operationWithTwoParameters(const string);
 	void operationWithOneParameters(const string);
-	void evalFunc(const int);
-	vector<int> calculateOperations(const int, vector<vector<int>>);
+	void calculateOperations(const int);
 	void print();
 
 private:
