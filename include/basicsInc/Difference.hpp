@@ -6,7 +6,7 @@
 class Difference : public Operation
 {
 public:
-	Difference();
+	Difference() {}
 	vector<int> calculate(const vector<int>&, const vector<int>&)override;
 };
 

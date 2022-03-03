@@ -1,7 +1,5 @@
 #include "basicsInc/Union.hpp"
 
-Union::Union()
-{}
 vector<int> Union::calculate(const vector<int>& a, const vector<int>& b)
 {
 	auto result = std::vector<int>();

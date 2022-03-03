@@ -21,10 +21,10 @@ shared_ptr <Operation> Operation::getRightOperation()const
 }
 vector<int> Operation::eval(const shared_ptr <Operation>& left, const shared_ptr <Operation>& right)
 {
-	if (left != nullptr || right != nullptr)
+	if (left != nullptr && right != nullptr)
 	{
-		vector<int> a = left->eval(left->getLeftOperation(), left->getRightOperation());
-		vector<int> b = right->eval(right->getLeftOperation(), right->getRightOperation());
+		vector<int> a = left->eval(left->getLeftOperation(), right->getRightOperation());
+		vector<int> b = right->eval(left->getLeftOperation(), right->getRightOperation());
 		return calculate(a, b);
 	}
 	else
@@ -36,7 +36,4 @@ vector<int> Operation::eval(const shared_ptr <Operation>& left, const shared_ptr
 vector<int> Operation::calculate(const vector<int>& a, const vector<int>& b)
 { 
 	return a;
-}
-Operation::~Operation()
-{
 }

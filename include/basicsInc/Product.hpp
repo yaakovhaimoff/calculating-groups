@@ -3,9 +3,9 @@
 #include "Operation.hpp"
 #include "Set.hpp"
 
-class Union : public Operation
+class Product : public Operation
 {
 public:
-	Union() {}
+	Product(){}
 	vector<int> calculate(const vector<int>&, const vector<int>&)override;
 };

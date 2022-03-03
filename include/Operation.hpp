@@ -10,9 +10,9 @@ public:
 	void setOperations(const shared_ptr <Operation>&, const shared_ptr <Operation>&);
 	shared_ptr <Operation> getLeftOperation()const;
 	shared_ptr <Operation> getRightOperation()const;
-	vector<int> eval(const shared_ptr <Operation>&, const shared_ptr <Operation>&);
+	virtual vector<int> eval(const shared_ptr <Operation>&, const shared_ptr <Operation>&);
 	virtual vector<int> calculate(const vector<int>&, const vector<int>&);
-	virtual ~Operation();
+	virtual ~Operation() {}
 	
 private:
 	shared_ptr <Operation> m_leftOperation, m_rightOperation;
