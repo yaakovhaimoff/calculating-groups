@@ -4,9 +4,9 @@
 class Print
 {
 public:
-	Print();
-	~Print();
+	Print(){}
 	void printHelp();
+	string setGroup(const vector<int>&, string&);
 	void printOperation();
 	void printArr(vector<int>&);
 

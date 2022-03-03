@@ -78,8 +78,14 @@ void Calculator::operationWithOneParameters(const string userInput)
 }
 void Calculator::calculateOperations(const int indexInArrToRunOperationOn)
 {
+	string s;
+	bool complex = false;
 	auto result = m_operation[indexInArrToRunOperationOn]->eval(
 		m_operation[indexInArrToRunOperationOn]->getLeftOperation(),
-		m_operation[indexInArrToRunOperationOn]->getRightOperation());
+		m_operation[indexInArrToRunOperationOn]->getRightOperation(), s, complex);
+	/*if (complex)
+		cout << m_operation[indexInArrToRunOperationOn]->setComplexOperation(s);
+	else*/
+		cout << s;
 	m_print.printArr(result);
 }

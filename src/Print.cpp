@@ -1,12 +1,5 @@
 #include "Print.hpp"
 
-Print::Print()
-{
-}
-
-Print::~Print()
-{
-}
 void Print::printHelp()
 {
 	cout <<
@@ -33,12 +26,27 @@ void Print::printOperation()
 {
 
 }
+string Print::setGroup(const vector<int>& arr, string& operation)
+{
+	for (int i = 0; i < arr.size(); i++)
+	{
+		if (i == 0)
+			operation += "{ ";
+
+		operation += std::to_string(arr[i]);
+		if (i == arr.size() - 1)
+			operation += " } ";
+		else
+			operation += ", ";
+	}
+	return operation;
+}
 void Print::printArr(vector<int>& arr)
 {
 	for (int i = 0; i < arr.size(); i++)
 	{
 		if (i == 0)
-			cout << "{ ";
+			cout << " = { ";
 		if(i == arr.size()-1)
 			cout << arr[i] << " }";
 		else
