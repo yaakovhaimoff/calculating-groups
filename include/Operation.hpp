@@ -7,7 +7,7 @@ class Operation
 {
 
 public:
-	Operation();
+	Operation(const string);
 	void setOperations(const shared_ptr <Operation>&, const shared_ptr <Operation>&);
 	shared_ptr <Operation> getLeftOperation()const;
 	shared_ptr <Operation> getRightOperation()const;
@@ -17,9 +17,11 @@ public:
 	virtual string addOperation();
 	virtual void setOperation(const vector<int>&, const vector<int>&, string&);
 	virtual void setComplexOperation(string&, bool);
+	string getExprsion()const { return m_expresion; }
 	virtual ~Operation() {}
 
 private:
 	shared_ptr <Operation> m_leftOperation, m_rightOperation;
 	Print m_print;
+	string m_expresion;
 };

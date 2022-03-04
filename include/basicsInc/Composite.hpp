@@ -6,7 +6,7 @@
 class Composite : public Operation
 {
 public:
-	Composite() {}
+	Composite() : Operation("->") {}
 	//vector<int> eval(const shared_ptr <Operation>&, const shared_ptr <Operation>&)override;
 	string addOperation()override;
 	vector<int> calculate(const vector<int>&, const vector<int>&)override;

@@ -5,7 +5,7 @@
 class Union : public Operation
 {
 public:
-	Union() {}
+	Union() : Operation("U") {}
 	string addOperation()override;
 	vector<int> calculate(const vector<int>&, const vector<int>&)override;
 };

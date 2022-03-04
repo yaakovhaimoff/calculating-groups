@@ -5,7 +5,6 @@
 
 int main() 
 {
-    cout << "hello" << endl;
     Calculator run;
     run.runCalc();
     

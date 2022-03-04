@@ -3,7 +3,6 @@
 void Print::printHelp()
 {
 	cout <<
-		"Enter command('help' for the list of available commands) : help\n"
 		"The available commands are :\n"
 		"*eval(uate) num ... - compute the result of function #num on the following\n"
 		"set(s); each set is prefixed with the count of numbers to read\n"
@@ -19,7 +18,7 @@ void Print::printHelp()
 		"operation #num1 and operation #num2\n"
 		"* del(ete) num - delete operation #num from the operation list\n"
 		"* help - print this command list\n"
-		"* exit - exit the program\n";
+		"* exit - exit the program\n\n";
 }
 
 void Print::printOperation()

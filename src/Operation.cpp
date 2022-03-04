@@ -1,6 +1,7 @@
 #include "Operation.hpp"
 
-Operation::Operation()
+Operation::Operation(const string x)
+	: m_expresion(x)
 {
 	m_leftOperation = nullptr;
 	m_rightOperation = nullptr;
@@ -10,6 +11,8 @@ void Operation::setOperations(const shared_ptr <Operation>& left,
 {
 	m_leftOperation = left;
 	m_rightOperation = right;
+
+	m_expresion = (*left).m_expresion + m_expresion + (*right).m_expresion;
 }
 shared_ptr <Operation> Operation::getLeftOperation()const
 {
@@ -63,7 +66,7 @@ void Operation::setComplexOperation(string& s, bool start)
 	}
 }
 vector<int> Operation::calculate(const vector<int>& a, const vector<int>& b)
-{ 
+{
 	return a;
 }
 string Operation::addOperation()

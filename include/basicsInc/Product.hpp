@@ -6,7 +6,7 @@
 class Product : public Operation
 {
 public:
-	Product(){}
+	Product() : Operation("*") {}
 	string addOperation()override;
 	vector<int> calculate(const vector<int>&, const vector<int>&)override;
 };

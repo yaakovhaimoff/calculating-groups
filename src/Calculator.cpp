@@ -10,6 +10,7 @@ Calculator::Calculator()
 void Calculator::runCalc()
 {
 	string userInput;
+	print();
 	cin >> userInput;
 	while (userInput != "exit")
 	{
@@ -28,6 +29,7 @@ void Calculator::runCalc()
 		}
 		else
 			cout << "wrong input!\ntry again.\n";
+		print();
 		cin >> userInput;
 	}
 	cout << "Goodbye" << endl;
@@ -73,8 +75,8 @@ void Calculator::operationWithOneParameters(const string userInput)
 	cin >> indexInArrToRunOperationOn;
 	if (userInput == "eval")
 		calculateOperations(indexInArrToRunOperationOn);
-	/*else
-		m_operation[indexInArrToRunOperationOn].erase(begin() + userInput);*/
+	else
+		m_operation.erase(m_operation.begin() + indexInArrToRunOperationOn);
 }
 void Calculator::calculateOperations(const int indexInArrToRunOperationOn)
 {
@@ -85,4 +87,23 @@ void Calculator::calculateOperations(const int indexInArrToRunOperationOn)
 		m_operation[indexInArrToRunOperationOn]->getRightOperation(), s, complex);
 	cout << s;
 	m_print.printArr(result);
+}
+void Calculator::print()
+{
+	char capitale = 65;
+	cout << "List of available set operations : " << endl;
+	for (size_t i = 0; i < m_operation.size(); i++)
+	{
+		cout << i << ".  ";
+		for (size_t j = 0; (*m_operation[i]).getExprsion()[j] != '\0'; j++, capitale++)
+		{
+			if (j % 2 == 0)
+				cout << '(' << capitale << (*m_operation[i]).getExprsion()[j] << (char(capitale + 1)) << ')';
+			else
+				cout << (*m_operation[i]).getExprsion()[j];
+		}
+		cout << endl;
+		capitale = 65;
+	}
+	cout << endl << "Enter command('help' for the list of available commands) :";
 }
