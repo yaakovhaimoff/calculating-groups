@@ -7,6 +7,6 @@ class Union : public Operation
 public:
 	Union() {}
 	void setOperation(const vector<int>&, const vector<int>&, string&)override;
-	string setComplexOperation(string&)override;
+	void setComplexOperation(string&, bool)override;
 	vector<int> calculate(const vector<int>&, const vector<int>&)override;
 };

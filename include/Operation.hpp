@@ -11,10 +11,10 @@ public:
 	void setOperations(const shared_ptr <Operation>&, const shared_ptr <Operation>&);
 	shared_ptr <Operation> getLeftOperation()const;
 	shared_ptr <Operation> getRightOperation()const;
-	virtual vector<int> eval(const shared_ptr <Operation>&, const shared_ptr <Operation>&, string&, bool&);
+	virtual vector<int> eval(const shared_ptr <Operation>&, const shared_ptr <Operation>&, string&, bool);
 	string setPrint(const vector<int>&, string&);
 	virtual vector<int> calculate(const vector<int>&, const vector<int>&);
-	virtual string setComplexOperation(string&);
+	virtual void setComplexOperation(string&, bool) {}
 	virtual void setOperation(const vector<int>&, const vector<int>&, string&) {}
 	virtual ~Operation() {}
 

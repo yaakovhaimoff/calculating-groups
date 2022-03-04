@@ -2,15 +2,22 @@
 
 void Union::setOperation(const vector<int>& a, const vector<int>& b, string& s)
 {
-	string operation;
-	s += "(" + setPrint(a, operation) + "U " + setPrint(b, operation) + ") ";
+	string operation1, operation2;
+	s += "(" + setPrint(a, operation1) + " U " + setPrint(b, operation2) + ")";
 }
-string Union::setComplexOperation(string& s)
+void Union::setComplexOperation(string& s, bool start)
 {
-	//	string operation;
-	/*s += "(" + s + "U " + s + ") ";
-	return s;*/
-	return "(" + s + "U " + s + ") ";
+	string operation;
+	if (start)
+	{
+		operation = "(" + s + " U ";
+		s = operation;
+	}
+	else 
+	{
+		operation += s + ")";
+		s = operation;
+	}
 }
 vector<int> Union::calculate(const vector<int>& a, const vector<int>& b)
 {

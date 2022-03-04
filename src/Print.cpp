@@ -35,7 +35,7 @@ string Print::setGroup(const vector<int>& arr, string& operation)
 
 		operation += std::to_string(arr[i]);
 		if (i == arr.size() - 1)
-			operation += " } ";
+			operation += " }";
 		else
 			operation += ", ";
 	}

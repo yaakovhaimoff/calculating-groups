@@ -79,7 +79,7 @@ void Calculator::operationWithOneParameters(const string userInput)
 void Calculator::calculateOperations(const int indexInArrToRunOperationOn)
 {
 	string s;
-	bool complex = false;
+	bool complex = true;
 	auto result = m_operation[indexInArrToRunOperationOn]->eval(
 		m_operation[indexInArrToRunOperationOn]->getLeftOperation(),
 		m_operation[indexInArrToRunOperationOn]->getRightOperation(), s, complex);
