@@ -1,5 +1,9 @@
 #include "basicsInc/Product.hpp"
 
+string Product::addOperation()
+{
+	return " * ";
+}
 vector<int> Product::calculate(const vector<int>& a, const vector<int>& b)
 {
 	auto result = std::vector<int>();

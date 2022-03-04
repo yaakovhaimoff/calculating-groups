@@ -14,8 +14,9 @@ public:
 	virtual vector<int> eval(const shared_ptr <Operation>&, const shared_ptr <Operation>&, string&, bool);
 	string setPrint(const vector<int>&, string&);
 	virtual vector<int> calculate(const vector<int>&, const vector<int>&);
-	virtual void setComplexOperation(string&, bool) {}
-	virtual void setOperation(const vector<int>&, const vector<int>&, string&) {}
+	virtual string addOperation();
+	virtual void setOperation(const vector<int>&, const vector<int>&, string&);
+	virtual void setComplexOperation(string&, bool);
 	virtual ~Operation() {}
 
 private:

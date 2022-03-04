@@ -1,5 +1,9 @@
 #include "basicsInc/Difference.hpp"
 
+string Difference::addOperation()
+{
+	return " - ";
+}
 vector<int> Difference::calculate(const vector<int>& a, const vector<int>& b)
 {
 	auto result = std::vector<int>();

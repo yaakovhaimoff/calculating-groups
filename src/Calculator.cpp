@@ -74,7 +74,7 @@ void Calculator::operationWithOneParameters(const string userInput)
 	if (userInput == "eval")
 		calculateOperations(indexInArrToRunOperationOn);
 	/*else
-		m_operation[indexInArrToRunOperationOn].erase*/
+		m_operation[indexInArrToRunOperationOn].erase(begin() + userInput);*/
 }
 void Calculator::calculateOperations(const int indexInArrToRunOperationOn)
 {
@@ -83,9 +83,6 @@ void Calculator::calculateOperations(const int indexInArrToRunOperationOn)
 	auto result = m_operation[indexInArrToRunOperationOn]->eval(
 		m_operation[indexInArrToRunOperationOn]->getLeftOperation(),
 		m_operation[indexInArrToRunOperationOn]->getRightOperation(), s, complex);
-	/*if (complex)
-		cout << m_operation[indexInArrToRunOperationOn]->setComplexOperation(s);
-	else*/
-		cout << s;
+	cout << s;
 	m_print.printArr(result);
 }

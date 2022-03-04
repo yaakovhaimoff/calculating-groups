@@ -1,23 +1,8 @@
 #include "basicsInc/Union.hpp"
 
-void Union::setOperation(const vector<int>& a, const vector<int>& b, string& s)
+string Union::addOperation()
 {
-	string operation1, operation2;
-	s += "(" + setPrint(a, operation1) + " U " + setPrint(b, operation2) + ")";
-}
-void Union::setComplexOperation(string& s, bool start)
-{
-	string operation;
-	if (start)
-	{
-		operation = "(" + s + " U ";
-		s = operation;
-	}
-	else 
-	{
-		operation += s + ")";
-		s = operation;
-	}
+	return " U ";
 }
 vector<int> Union::calculate(const vector<int>& a, const vector<int>& b)
 {

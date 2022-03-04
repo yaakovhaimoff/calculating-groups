@@ -7,6 +7,7 @@ class Difference : public Operation
 {
 public:
 	Difference() {}
+	string addOperation()override;
 	vector<int> calculate(const vector<int>&, const vector<int>&)override;
 };
 

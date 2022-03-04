@@ -1,5 +1,9 @@
 #include "basicsInc/Intersection.hpp"
 
+string Intersection::addOperation()
+{
+	return " ^ ";
+}
 vector<int> Intersection::calculate(const vector<int>& a, const vector<int>& b)
 {
 	auto result = std::vector<int>();

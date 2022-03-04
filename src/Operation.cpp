@@ -21,20 +21,14 @@ shared_ptr <Operation> Operation::getRightOperation()const
 }
 vector<int> Operation::eval(const shared_ptr <Operation>& left, const shared_ptr <Operation>& right, string& groups, bool complex)
 {
-	bool start = true;
 	if (left != nullptr && right != nullptr)
 	{
 		vector<int> a = left->eval(left->getLeftOperation(), right->getRightOperation(), groups, complex);
 		if (complex)
-		{
-			setComplexOperation(groups, start);
-			start = false;
-		}
+			setComplexOperation(groups, true);
 		vector<int> b = right->eval(left->getLeftOperation(), right->getRightOperation(), groups, complex);
 		if (complex)
-		{
-			setComplexOperation(groups, start);
-		}
+			setComplexOperation(groups, false);
 		return calculate(a, b);
 	}
 	else
@@ -49,7 +43,30 @@ string Operation::setPrint(const vector<int>& a, string& s)
 {
 	return m_print.setGroup(a, s);
 }
+void Operation::setOperation(const vector<int>& a, const vector<int>& b, string& s)
+{
+	string operation1, operation2;
+	s += "(" + setPrint(a, operation1) + addOperation() + setPrint(b, operation2) + ")";
+}
+void Operation::setComplexOperation(string& s, bool start)
+{
+	string operation;
+	if (start)
+	{
+		operation = "(" + s + addOperation();
+		s = operation;
+	}
+	else
+	{
+		operation += s + ")";
+		s = operation;
+	}
+}
 vector<int> Operation::calculate(const vector<int>& a, const vector<int>& b)
 { 
 	return a;
+}
+string Operation::addOperation()
+{
+	return "";
 }

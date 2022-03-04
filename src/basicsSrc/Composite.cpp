@@ -14,6 +14,10 @@
 //		return calculate(a.getArr(), b.getArr());
 //	}
 //}
+string Composite::addOperation()
+{
+	return " -> ";
+}
 vector<int> Composite::calculate(const vector<int>& a, const vector<int>& b)
 {
 	auto result = std::vector<int>();
