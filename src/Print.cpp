@@ -1,5 +1,6 @@
 #include "Print.hpp"
 
+//_____________________
 void Print::printHelp()
 {
 	cout <<
@@ -20,11 +21,7 @@ void Print::printHelp()
 		"* help - print this command list\n"
 		"* exit - exit the program\n\n";
 }
-
-void Print::printOperation()
-{
-
-}
+//_______________________________________________________________
 string Print::setGroup(const vector<int>& arr, string& operation)
 {
 	for (int i = 0; i < arr.size(); i++)
@@ -40,6 +37,8 @@ string Print::setGroup(const vector<int>& arr, string& operation)
 	}
 	return operation;
 }
+//prints the operation result array
+//____________________________________
 void Print::printArr(vector<int>& arr)
 {
 	if (arr.size() > 0)

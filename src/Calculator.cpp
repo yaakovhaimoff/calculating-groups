@@ -1,12 +1,16 @@
 #include "Calculator.hpp"
 
+//______________________
 Calculator::Calculator()
 {
 	m_operation.resize(3);
+	//defines 3 basics operations
 	m_operation[0] = make_shared<Union>();
 	m_operation[1] = make_shared<Intersection>();
 	m_operation[2] = make_shared<Difference>();
 }
+//main loop function
+//________________________
 void Calculator::runCalc()
 {
 	string userInput;
@@ -34,6 +38,9 @@ void Calculator::runCalc()
 	}
 	cout << "Goodbye" << endl;
 }
+
+//manage actions for operations with 2 parameters from the user
+//_________________________________________________________________
 void Calculator::operationWithTwoParameters(const string userInput)
 {
 	int firstIndexInArr, secondIndexInArr;
@@ -69,6 +76,9 @@ void Calculator::operationWithTwoParameters(const string userInput)
 			m_operation[secondIndexInArr]);
 	}
 }
+
+//manage actions for operations with one parameter from the user
+//_________________________________________________________________
 void Calculator::operationWithOneParameters(const string userInput)
 {
 	int indexInArrToRunOperationOn;
@@ -78,23 +88,25 @@ void Calculator::operationWithOneParameters(const string userInput)
 	else
 		m_operation.erase(m_operation.begin() + indexInArrToRunOperationOn);
 }
+//evaluates the choosen operation function from the user
+//________________________________________________________________________
 void Calculator::calculateOperations(const int indexInArrToRunOperationOn)
 {
 	string s;
-	bool complex = true;
-	auto result = m_operation[indexInArrToRunOperationOn]->eval(s, complex);
+	auto result = m_operation[indexInArrToRunOperationOn]->eval(s);
 	cout << s;
 	m_print.printArr(result);
 }
+//prints the operations menu
+//______________________
 void Calculator::print()
 {
 	char capital = 64;
-	bool first = true;
 	cout << "List of available set operations : " << endl;
 	for (size_t i = 0; i < m_operation.size(); i++)
 	{
 		cout << i << ".  ";
-		m_operation[i]->printEx(capital, first);
+		m_operation[i]->printEx(capital);
 		cout << endl;
 		capital = 64;
 	}

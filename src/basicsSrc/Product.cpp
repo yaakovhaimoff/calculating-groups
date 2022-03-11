@@ -1,9 +1,6 @@
 #include "basicsInc/Product.hpp"
 
-string Product::addOperation()
-{
-	return " * ";
-}
+//________________________________________________________________________
 vector<int> Product::calculate(const vector<int>& a, const vector<int>& b)
 {
 	auto result = std::vector<int>();
@@ -19,7 +16,13 @@ vector<int> Product::calculate(const vector<int>& a, const vector<int>& b)
 	result.erase(newEnd, end);
 	return result;
 }
+//________________________________
 void Product::print(char& capitle)
 {
 	cout << "(" << ++capitle << " * " << ++capitle << ")";
+}
+//____________________________
+string Product::addOperation()
+{
+	return " * ";
 }

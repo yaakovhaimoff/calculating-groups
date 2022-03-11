@@ -1,9 +1,6 @@
 #include "basicsInc/Intersection.hpp"
 
-string Intersection::addOperation()
-{
-	return " ^ ";
-}
+//_____________________________________________________________________________
 vector<int> Intersection::calculate(const vector<int>& a, const vector<int>& b)
 {
 	auto result = std::vector<int>();
@@ -11,7 +8,13 @@ vector<int> Intersection::calculate(const vector<int>& a, const vector<int>& b)
 
 	return result;
 }
+//_____________________________________
 void Intersection::print(char& capitle)
 {
 	cout << "(" << ++capitle << " ^ " << ++capitle << ")";
+}
+//_________________________________
+string Intersection::addOperation()
+{
+	return " ^ ";
 }

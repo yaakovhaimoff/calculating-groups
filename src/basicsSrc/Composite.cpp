@@ -1,46 +1,43 @@
 #include "basicsInc/Composite.hpp"
 
-void Composite::printEx(char& capitle, bool first)
+//____________________________________
+void Composite::printEx(char& capitle)
 {
 	if (this->getLeftOperation() != nullptr && this->getRightOperation() != nullptr)
 	{
-		this->getLeftOperation()->printEx(capitle, first);
-		if (first)
-			cout << this->addOperation();
-		this->getRightOperation()->printEx(capitle, first);
+		this->getLeftOperation()->printEx(capitle);
+		cout << this->addOperation();
+		this->getRightOperation()->printEx(capitle);
 	}
 	else
-	{
-		first = false;
 		this->print(capitle);
-	}
 }
-vector<int> Composite::eval(string& groups, bool complex)
+//_________________________________________
+vector<int> Composite::eval(string& groups)
 {
 	bool composite = true;
-	vector<int> a = evalComp(this->getLeftOperation(), groups, complex, composite, a);
-	if (complex)
-		setComplexOperation(groups, true);
+	vector<int> a = evalComp(this->getLeftOperation(), groups, composite, a);
+	setComplexOperation(groups, true);
 	composite = false;
-	vector<int> b = evalComp(this->getRightOperation(), groups, complex, composite, a);
-	if (complex)
-		setComplexOperation(groups, false);
+	vector<int> b = evalComp(this->getRightOperation(), groups, composite, a);
+	setComplexOperation(groups, false);
 	return this->getRightOperation()->calculate(a, b);
 }
+//evaluate of composite operation
+//_____________________________________________________________________________________
 vector<int> Composite::evalComp(const shared_ptr <Operation>& operation, string& groups,
-	bool complex, bool& composite, const vector<int>& leftCompArr)
+	bool& composite, const vector<int>& leftCompArr)
 {
 	if (operation->getLeftOperation() != nullptr && operation->getRightOperation() != nullptr)
 	{
-		vector<int> a = evalComp(this->getLeftOperation(), groups, complex, composite, leftCompArr);
-		vector<int> b = evalComp(this->getRightOperation(), groups, complex, composite, leftCompArr);
+		vector<int> a = evalComp(this->getLeftOperation(), groups, composite, leftCompArr);
+		vector<int> b = evalComp(this->getRightOperation(), groups, composite, leftCompArr);
 		return operation->calculate(a, b);
 	}
 	else
 	{
 		if (composite)
 		{
-			complex = false;
 			Set a, b;
 			operation->setOperation(a.getArr(), b.getArr(), groups);
 			return operation->calculate(a.getArr(), b.getArr());
@@ -54,10 +51,12 @@ vector<int> Composite::evalComp(const shared_ptr <Operation>& operation, string&
 		}
 	}
 }
+//______________________________
 string Composite::addOperation()
 {
 	return " -> ";
 }
+//__________________________________
 void Composite::print(char& capitle)
 {
 	cout << "(" << ++capitle << " -> " << ++capitle << ")";
