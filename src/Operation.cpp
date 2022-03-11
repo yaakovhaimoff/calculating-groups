@@ -21,7 +21,6 @@ shared_ptr <Operation> Operation::getLeftOperation()const
 shared_ptr <Operation> Operation::getRightOperation()const
 {
 	return m_rightOperation;
-
 }
 // prints the expresion of the current operation
 //____________________________________
@@ -44,10 +43,11 @@ vector<int> Operation::eval(string& groups)
 {
 	if (this->m_leftOperation != nullptr && this->m_rightOperation != nullptr)
 	{
+		groups += "(";
 		vector<int> a = this->m_leftOperation->eval(groups);
-		setComplexOperation(groups, true);
+		groups += addOperation();
 		vector<int> b = this->m_rightOperation->eval(groups);
-		setComplexOperation(groups, false);
+		groups += ")";
 		return calculate(a, b);
 	}
 	else
@@ -67,21 +67,6 @@ void Operation::setOperation(const vector<int>& a, const vector<int>& b, string&
 string Operation::setPrint(const vector<int>& a, string& s)
 {
 	return m_print.setGroup(a, s);
-}
-//________________________________________________________
-void Operation::setComplexOperation(string& s, bool start)
-{
-	string operation;
-	if (start)
-	{
-		operation = "(" + s + addOperation();
-		s = operation;
-	}
-	else
-	{
-		operation += s + ")";
-		s = operation;
-	}
 }
 vector<int> Operation::calculate(const vector<int>& a, const vector<int>& b)
 {

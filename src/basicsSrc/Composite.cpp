@@ -17,10 +17,9 @@ vector<int> Composite::eval(string& groups)
 {
 	bool composite = true;
 	vector<int> a = evalComp(this->getLeftOperation(), groups, composite, a);
-	setComplexOperation(groups, true);
+	groups += addOperation();
 	composite = false;
 	vector<int> b = evalComp(this->getRightOperation(), groups, composite, a);
-	setComplexOperation(groups, false);
 	return this->getRightOperation()->calculate(a, b);
 }
 //evaluate of composite operation
@@ -28,7 +27,7 @@ vector<int> Composite::eval(string& groups)
 vector<int> Composite::evalComp(const shared_ptr <Operation>& operation, string& groups,
 	bool& composite, const vector<int>& leftCompArr)
 {
-	if (operation->getLeftOperation() != nullptr && operation->getRightOperation() != nullptr)
+	if (operation->getLeftOperation() != nullptr || operation->getRightOperation() != nullptr)
 	{
 		vector<int> a = evalComp(this->getLeftOperation(), groups, composite, leftCompArr);
 		vector<int> b = evalComp(this->getRightOperation(), groups, composite, leftCompArr);

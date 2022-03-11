@@ -13,11 +13,10 @@ public:
 	shared_ptr <Operation> getRightOperation()const;
 	virtual vector<int> eval(string&);
 	string setPrint(const vector<int>&, string&);
+	virtual void setOperation(const vector<int>&, const vector<int>&, string&);
+	virtual void printEx(char&);
 	virtual vector<int> calculate(const vector<int>&, const vector<int>&);
 	virtual string addOperation();
-	virtual void setOperation(const vector<int>&, const vector<int>&, string&);
-	virtual void setComplexOperation(string&, bool);
-	virtual void printEx(char&);
 	virtual void print(char&) = 0;
 	virtual ~Operation() {}
 
