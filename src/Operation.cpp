@@ -20,6 +20,25 @@ shared_ptr <Operation> Operation::getRightOperation()const
 	return m_rightOperation;
 
 }
+void Operation::printEx(char& capitle, bool first)
+{
+	if (this->m_leftOperation != nullptr && this->m_rightOperation != nullptr)
+	{
+		if (first)
+			cout << "(";
+		this->m_leftOperation->printEx(capitle, first);
+		if (first)
+			cout << this->addOperation();
+		this->m_rightOperation->printEx(capitle, first);
+		if (first)
+			cout << ")";
+	}
+	else
+	{
+		first = false;
+		this->print(capitle);
+	}
+}
 vector<int> Operation::eval(string& groups, bool complex)
 {
 	if (this->m_leftOperation != nullptr && this->m_rightOperation != nullptr)
@@ -40,33 +59,14 @@ vector<int> Operation::eval(string& groups, bool complex)
 		return calculate(a.getArr(), b.getArr());
 	}
 }
-void Operation::printEx(char& capitle, bool first)
-{
-	if (this->m_leftOperation != nullptr && this->m_rightOperation != nullptr)
-	{
-		if (first)
-			cout << "(";
-		this->m_leftOperation->printEx(capitle, first);
-		if (first)
-			cout << this->addOperation();
-		this->m_rightOperation->printEx(capitle, first);
-		if (first)
-			cout << ")";
-	}
-	else
-	{
-		first = false;
-		this->print(capitle);
-	}
-}
-string Operation::setPrint(const vector<int>& a, string& s)
-{
-	return m_print.setGroup(a, s);
-}
 void Operation::setOperation(const vector<int>& a, const vector<int>& b, string& s)
 {
 	string operation1, operation2;
 	s += "(" + setPrint(a, operation1) + addOperation() + setPrint(b, operation2) + ")";
+}
+string Operation::setPrint(const vector<int>& a, string& s)
+{
+	return m_print.setGroup(a, s);
 }
 void Operation::setComplexOperation(string& s, bool start)
 {

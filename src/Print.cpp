@@ -42,14 +42,17 @@ string Print::setGroup(const vector<int>& arr, string& operation)
 }
 void Print::printArr(vector<int>& arr)
 {
-	for (int i = 0; i < arr.size(); i++)
-	{
-		if (i == 0)
-			cout << " = { ";
-		if(i == arr.size()-1)
-			cout << arr[i] << " }";
-		else
-			cout << arr[i] << ", ";
-	}
+	if (arr.size() > 0)
+		for (int i = 0; i < arr.size(); i++)
+		{
+			if (i == 0)
+				cout << " = { ";
+			if (i == arr.size() - 1)
+				cout << arr[i] << " }";
+			else
+				cout << arr[i] << ", ";
+		}
+	else
+		cout << " = {}";
 	cout << endl << endl;
 }
