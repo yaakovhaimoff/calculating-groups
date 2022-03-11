@@ -51,5 +51,5 @@ void Print::printArr(vector<int>& arr)
 		else
 			cout << arr[i] << ", ";
 	}
-	cout << endl;
+	cout << endl << endl;
 }

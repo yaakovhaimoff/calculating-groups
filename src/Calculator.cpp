@@ -82,28 +82,21 @@ void Calculator::calculateOperations(const int indexInArrToRunOperationOn)
 {
 	string s;
 	bool complex = true;
-	auto result = m_operation[indexInArrToRunOperationOn]->eval(
-		m_operation[indexInArrToRunOperationOn]->getLeftOperation(),
-		m_operation[indexInArrToRunOperationOn]->getRightOperation(), s, complex);
+	auto result = m_operation[indexInArrToRunOperationOn]->eval(s, complex);
 	cout << s;
 	m_print.printArr(result);
 }
 void Calculator::print()
 {
-	char capitale = 65;
+	char capital = 64;
+	bool first = true;
 	cout << "List of available set operations : " << endl;
 	for (size_t i = 0; i < m_operation.size(); i++)
 	{
 		cout << i << ".  ";
-		for (size_t j = 0; (*m_operation[i]).getExprsion()[j] != '\0'; j++, capitale++)
-		{
-			if (j % 2 == 0)
-				cout << '(' << capitale << (*m_operation[i]).getExprsion()[j] << (char(capitale + 1)) << ')';
-			else
-				cout << (*m_operation[i]).getExprsion()[j];
-		}
+		m_operation[i]->printEx(capital, first);
 		cout << endl;
-		capitale = 65;
+		capital = 64;
 	}
 	cout << endl << "Enter command('help' for the list of available commands) :";
 }

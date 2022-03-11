@@ -1,7 +1,6 @@
 #include "Operation.hpp"
 
-Operation::Operation(const string x)
-	: m_expresion(x)
+Operation::Operation()
 {
 	m_leftOperation = nullptr;
 	m_rightOperation = nullptr;
@@ -11,8 +10,6 @@ void Operation::setOperations(const shared_ptr <Operation>& left,
 {
 	m_leftOperation = left;
 	m_rightOperation = right;
-
-	m_expresion = (*left).m_expresion + m_expresion + (*right).m_expresion;
 }
 shared_ptr <Operation> Operation::getLeftOperation()const
 {
@@ -21,15 +18,16 @@ shared_ptr <Operation> Operation::getLeftOperation()const
 shared_ptr <Operation> Operation::getRightOperation()const
 {
 	return m_rightOperation;
+
 }
-vector<int> Operation::eval(const shared_ptr <Operation>& left, const shared_ptr <Operation>& right, string& groups, bool complex)
+vector<int> Operation::eval(string& groups, bool complex)
 {
-	if (left != nullptr && right != nullptr)
+	if (this->m_leftOperation != nullptr && this->m_rightOperation != nullptr)
 	{
-		vector<int> a = left->eval(left->getLeftOperation(), right->getRightOperation(), groups, complex);
+		vector<int> a = this->m_leftOperation->eval(groups, complex);
 		if (complex)
 			setComplexOperation(groups, true);
-		vector<int> b = right->eval(left->getLeftOperation(), right->getRightOperation(), groups, complex);
+		vector<int> b = this->m_rightOperation->eval(groups, complex);
 		if (complex)
 			setComplexOperation(groups, false);
 		return calculate(a, b);
@@ -40,6 +38,25 @@ vector<int> Operation::eval(const shared_ptr <Operation>& left, const shared_ptr
 		Set a, b;
 		setOperation(a.getArr(), b.getArr(), groups);
 		return calculate(a.getArr(), b.getArr());
+	}
+}
+void Operation::printEx(char& capitle, bool first)
+{
+	if (this->m_leftOperation != nullptr && this->m_rightOperation != nullptr)
+	{
+		if (first)
+			cout << "(";
+		this->m_leftOperation->printEx(capitle, first);
+		if (first)
+			cout << this->addOperation();
+		this->m_rightOperation->printEx(capitle, first);
+		if (first)
+			cout << ")";
+	}
+	else
+	{
+		first = false;
+		this->print(capitle);
 	}
 }
 string Operation::setPrint(const vector<int>& a, string& s)

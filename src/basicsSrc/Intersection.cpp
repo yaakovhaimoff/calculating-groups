@@ -11,3 +11,7 @@ vector<int> Intersection::calculate(const vector<int>& a, const vector<int>& b)
 
 	return result;
 }
+void Intersection::print(char& capitle)
+{
+	cout << "(" << ++capitle << " ^ " << ++capitle << ")";
+}

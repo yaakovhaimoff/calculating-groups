@@ -6,7 +6,8 @@
 class Intersection : public Operation
 {
 public:
-	Intersection() : Operation("^") {}
+	Intersection() {}
 	string addOperation()override;
+	void print(char&)override;
 	vector<int> calculate(const vector<int>&, const vector<int>&)override;
 };

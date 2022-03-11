@@ -19,3 +19,7 @@ vector<int> Product::calculate(const vector<int>& a, const vector<int>& b)
 	result.erase(newEnd, end);
 	return result;
 }
+void Product::print(char& capitle)
+{
+	cout << "(" << ++capitle << " * " << ++capitle << ")";
+}

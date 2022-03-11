@@ -11,3 +11,7 @@ vector<int> Union::calculate(const vector<int>& a, const vector<int>& b)
 	
 	return result;
 }
+void Union::print(char& capitle)
+{
+	cout << "(" << ++capitle << " U " << ++capitle << ")";
+}

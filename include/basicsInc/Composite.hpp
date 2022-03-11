@@ -6,8 +6,10 @@
 class Composite : public Operation
 {
 public:
-	Composite() : Operation("->") {}
-	//vector<int> eval(const shared_ptr <Operation>&, const shared_ptr <Operation>&)override;
+	Composite() {}
+	vector<int> eval(string&, bool)override;
+	void printEx(char&, bool);
 	string addOperation()override;
-	vector<int> calculate(const vector<int>&, const vector<int>&)override;
+	void print(char&)override;
+	//vector<int> calculate(const vector<int>&, const vector<int>&)override;
 };

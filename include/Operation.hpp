@@ -7,21 +7,21 @@ class Operation
 {
 
 public:
-	Operation(const string);
+	Operation();
 	void setOperations(const shared_ptr <Operation>&, const shared_ptr <Operation>&);
 	shared_ptr <Operation> getLeftOperation()const;
 	shared_ptr <Operation> getRightOperation()const;
-	virtual vector<int> eval(const shared_ptr <Operation>&, const shared_ptr <Operation>&, string&, bool);
+	virtual vector<int> eval(string&, bool);
 	string setPrint(const vector<int>&, string&);
 	virtual vector<int> calculate(const vector<int>&, const vector<int>&);
 	virtual string addOperation();
 	virtual void setOperation(const vector<int>&, const vector<int>&, string&);
 	virtual void setComplexOperation(string&, bool);
-	string getExprsion()const { return m_expresion; }
+	virtual void printEx(char&, bool);
+	virtual void print(char&) {}
 	virtual ~Operation() {}
 
 private:
 	shared_ptr <Operation> m_leftOperation, m_rightOperation;
 	Print m_print;
-	string m_expresion;
 };

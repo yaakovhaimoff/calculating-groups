@@ -11,3 +11,7 @@ vector<int> Difference::calculate(const vector<int>& a, const vector<int>& b)
 	
 	return result;
 }
+void Difference::print(char& capitle)
+{
+	cout << "(" << ++capitle << " - " << ++capitle << ")";
+}
