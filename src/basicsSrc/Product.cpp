@@ -17,9 +17,9 @@ vector<int> Product::calculate(const vector<int>& a, const vector<int>& b)
 	return result;
 }
 //________________________________
-void Product::print(char& capitle)
+void Product::print(char& capital)
 {
-	cout << "(" << ++capitle << " * " << ++capitle << ")";
+	cout << "(" << ++capital << " * " << ++capital << ")";
 }
 //____________________________
 string Product::addOperation()

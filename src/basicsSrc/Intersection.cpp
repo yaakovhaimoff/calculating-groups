@@ -9,9 +9,9 @@ vector<int> Intersection::calculate(const vector<int>& a, const vector<int>& b)
 	return result;
 }
 //_____________________________________
-void Intersection::print(char& capitle)
+void Intersection::print(char& capital)
 {
-	cout << "(" << ++capitle << " ^ " << ++capitle << ")";
+	cout << "(" << ++capital << " ^ " << ++capital << ")";
 }
 //_________________________________
 string Intersection::addOperation()

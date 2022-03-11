@@ -10,9 +10,9 @@ vector<int> Difference::calculate(const vector<int>& a, const vector<int>& b)
 	return result;
 }
 //___________________________________
-void Difference::print(char& capitle)
+void Difference::print(char& capital)
 {
-	cout << "(" << ++capitle << " - " << ++capitle << ")";
+	cout << "(" << ++capital << " - " << ++capital << ")";
 }
 //_______________________________
 string Difference::addOperation()

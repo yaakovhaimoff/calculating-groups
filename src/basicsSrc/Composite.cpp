@@ -1,16 +1,16 @@
 #include "basicsInc/Composite.hpp"
 
 //____________________________________
-void Composite::printEx(char& capitle)
+void Composite::printEx(char& capital)
 {
 	if (this->getLeftOperation() != nullptr && this->getRightOperation() != nullptr)
 	{
-		this->getLeftOperation()->printEx(capitle);
+		this->getLeftOperation()->printEx(capital);
 		cout << this->addOperation();
-		this->getRightOperation()->printEx(capitle);
+		this->getRightOperation()->printEx(capital);
 	}
 	else
-		this->print(capitle);
+		this->print(capital);
 }
 //_________________________________________
 vector<int> Composite::eval(string& groups)
@@ -27,7 +27,7 @@ vector<int> Composite::eval(string& groups)
 vector<int> Composite::evalComp(const shared_ptr <Operation>& operation, string& groups,
 	bool& composite, const vector<int>& leftCompArr)
 {
-	if (operation->getLeftOperation() != nullptr || operation->getRightOperation() != nullptr)
+	if (operation->getLeftOperation() != nullptr && operation->getRightOperation() != nullptr)
 	{
 		vector<int> a = evalComp(this->getLeftOperation(), groups, composite, leftCompArr);
 		vector<int> b = evalComp(this->getRightOperation(), groups, composite, leftCompArr);
@@ -56,7 +56,7 @@ string Composite::addOperation()
 	return " -> ";
 }
 //__________________________________
-void Composite::print(char& capitle)
+void Composite::print(char& capital)
 {
-	cout << "(" << ++capitle << " -> " << ++capitle << ")";
+	cout << "(" << ++capital << " -> " << ++capital << ")";
 }

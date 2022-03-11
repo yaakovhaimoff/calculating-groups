@@ -9,9 +9,9 @@ vector<int> Union::calculate(const vector<int>& a, const vector<int>& b)
 	return result;
 }
 //______________________________
-void Union::print(char& capitle)
+void Union::print(char& capital)
 {
-	cout << "(" << ++capitle << " U " << ++capitle << ")";
+	cout << "(" << ++capital << " U " << ++capital << ")";
 }
 //__________________________
 string Union::addOperation()
