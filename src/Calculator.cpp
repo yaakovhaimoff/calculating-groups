@@ -32,7 +32,7 @@ void Calculator::runCalc()
 			m_print.printHelp();
 		}
 		else
-			cout << "wrong input!\ntry again.\n";
+			cout << "Command not found\n\n";
 		print();
 		cin >> userInput;
 	}
@@ -83,10 +83,13 @@ void Calculator::operationWithOneParameters(const string userInput)
 {
 	int indexInArrToRunOperationOn;
 	cin >> indexInArrToRunOperationOn;
-	if (userInput == "eval")
+	if (userInput == "eval" && indexInArrToRunOperationOn >= 0 &&
+		indexInArrToRunOperationOn < m_operation.size())
 		calculateOperations(indexInArrToRunOperationOn);
-	else
+	else if (userInput == "del")
 		m_operation.erase(m_operation.begin() + indexInArrToRunOperationOn);
+	else
+		cout << "Operation #" << indexInArrToRunOperationOn << " doesn't exists\n\n";
 }
 //evaluates the choosen operation function from the user
 //________________________________________________________________________

@@ -8,6 +8,6 @@ public:
 	void printHelp();
 	string setGroup(const vector<int>&, string&);
 	void printOperation();
-	void printArr(vector<int>&);
+	void printArr(const vector<int>&);
 
 };

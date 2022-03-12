@@ -1,7 +1,6 @@
 #pragma once 
 #include "Macros.hpp"
 #include "Operation.hpp"
-#include "Set.hpp"
 
 class Product : public Operation
 {

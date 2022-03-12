@@ -39,7 +39,7 @@ string Print::setGroup(const vector<int>& arr, string& operation)
 }
 //prints the operation result array
 //____________________________________
-void Print::printArr(vector<int>& arr)
+void Print::printArr(const vector<int>& arr)
 {
 	if (arr.size() > 0)
 		for (int i = 0; i < arr.size(); i++)
